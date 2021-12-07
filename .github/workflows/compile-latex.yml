@@ -28,3 +28,7 @@ jobs:
       - uses: xu-cheng/latex-action@v2
         with:
           root_file: geometria_iperbolica.tex
+      - uses: actions/upload-artifact@v2
+        with:
+          name: AppuntiGeometriaIperbolica
+          path: geometria_iperbolica.pdf
