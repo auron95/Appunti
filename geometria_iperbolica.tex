@@ -2,7 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
-\usepackage{amsmath, amssymb, amsthm}
+\usepackage{amsmath, amssymb, amsthm, extarrows}
 \newtheorem{theorem}{Teorema}
 \newtheorem{proposition}{Proposizione}
 \newtheorem{corollary}{Corollario}
@@ -405,4 +405,85 @@ Vogliamo definire questa forma di intersezione sulle correnti.
     \begin{proof}
         Prendo $\overline{C}$ completamento di $C$, con $C$ regione complementare. Quello che voglio dire è che $\overline{C}$ è superficie con bordo geodetico. Lo completo in modo astratto, i.e. se si attacca in due modi attacco due copie. Qualsiasi superficie con bordo geodetico ha area almeno $\pi$, quella del triangolo ideale.
     \end{proof}
+
+\section{7 dicembre}
+
+    L'ultima volta abbiamo visto la definizione di laminazione.
+
+    \begin{corollary}
+        Visto che una laminazione ha parte interna vuota, una laminazione è determinata dal suo supporto.
+    \end{corollary}
+
+    Dato che ho un numero finito di regioni complementari, ho un numero finito di bordi. Infatti, se una regione avesse infiniti bordi, allora avrebbe area $\infty$.
+
+    \begin{definition}
+        Una \emph{misura trasversa} è una misura Boreliana assegnata a qualsiasi arco $\alpha \pitchfork \lambda$, cioè c'è una misura su qualsiasi arco. Deve soddisfare:
+        \begin{itemize}
+            \item avere supporto in $\alpha \cap \lambda$ ;
+            \item essere invariante per isotopia, cioè se io muovo l'arco in modo che gli estremi stiano fuori da $\lambda$ ho un omeomorfismo tra $\alpha \cap \lambda$ e $\alpha' \cap \lambda$ che mi deve indurre la stessa misura. In particolare, vale che $L(\alpha) = \textrm{misura di } \alpha = L(\alpha')$.
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        Prendete una multicurva geodetica e assegnate dei pesi a ciascun elemento, $\lambda_1, \lambda_2, \ldots \lambda_k$. Le misure trasverse supportate su questa $\lambda$ sono $\xleftrightarrow{1:1} \mathbb R^k$.
+    \end{example}
+    
+    \begin{proposition}
+        $\exists$ naturale corrispondenza biunivoca tra correnti che stanno nel cono di luce (cioè $i(\alpha,\alpha) = 0$) e laminazioni misurate $\mathcal{ML}$ (includiamo corrente nulla e laminazione vuota).
+    \end{proposition}
+    
+    \begin{proof}
+        Se $\alpha$ è una corrente, il suo supporto è una laminazione perché visto che $i(\alpha,\alpha) = 0$ abbiamo visto che $i(\alpha,\beta) \neq 0 \iff$ ho due rette dei supporti che si intersecano.
+        Come definiamo una misura? Prendo un arco $\alpha$, lo sollevo a un arco su $\mathbb H^2$. A meno di spezzettarlo in finiti pezzi, suppongo che l'arco intersechi ogni retta al più una volta. Ora do all'arco una lunghezza che è la misura dell'insieme di rette che interseca $\subseteq \mathcal G$.
+
+        Ora si dimostra che è biunivoca ma non lo facciamo (si può andare a ritroso).
+    \end{proof}
+    
+    \subsection{Train tracks}
+    \begin{definition}[Train track]
+        Una \emph{ferrovia} in $S$ è $\tau \subseteq S$ unione finita di archi che intersecano solo agli estremi (vertici). A ogni vertice ci sono almeno tre archi, tutti con la stessa retta tangente e almeno due vanno in direzione opposta.
+        
+        Inoltre le regioni complementari non devono esserci dischi (senza punti angolosi), 1-goni, 2-goni, e neanche anelli. In un senso devono avere caratteristica di Eulero negativa.
+    \end{definition}
+        
+    \begin{definition}
+        Un sistema di pesi su una ferrovia $\tau$ è l'assegnazione di un numero $a_i$ su ogni spigolo (arco) tale che sia soddisfatta la condizione di switch, cioè che i pesi a sinistra devono avere la stessa somma dei pesi a destra.
+
+        Un sistema di pesi è intero se i pesi sono interi.
+    \end{definition}
+
+    Abbiamo che \[
+        \mathcal S \subseteq \{\mbox{curve semplici chiuse}\} \subseteq \mathcal M = \{\mbox{multicurve}\} \subseteq \mathcal{ML} \subseteq \mathcal C.
+    \]
+    \begin{proposition}
+        $\tau\subseteq S$ ferrovia. Ho una naturale inclusione $\{\mbox{pesi interi}\} \hookrightarrow \mathcal M$.
+    \end{proposition}
+
+    \begin{proof}
+        Al posto di ogni arco mettete $a_i$ archi paralleli attaccati nell'unico modo sensato (sto usando la condizione di switch).
+
+        Devo dimostrare che nessuna componente complementare alla multicurva è un disco per poterla chiamare multicurva. Si usa che abbiamo escluso i casi che puzzavano di caratteristica di Eulero positiva.
+
+        La mappa è iniettiva perché non lo dimostriamo, lo faremo più avanti.
+    \end{proof} 
+
+    Fissiamo una decomposizione in pantaloni e anelli, che è una decomposizione in pantaloni in cui ogni curva compare due volte. Fisso su ogni curva un punto e l'identificazione di ogni pantalone con un modello standard (disegno di un disco con tre dischi rimossi) e di ogni anello con un anello standard.
+
+    Ogni anello riceve una terna di pesi $(a_i, b_i, c_i) \geq 0$ tali che uno è la somma degli altri due. Quelli interi parametrizzano multicurve, quelli reali laminazioni.
+    L'insieme di pesi è omeomorfo a $\mathbb R^{6 g - 6}$ (ho $3 g - 3$ anelli che contribuiscono ciascuno con un cono su un triangolo che è omeomorfo a $\mathbb R^2$ ). La dimensione torna, perché il cono di luce quando lo proietto al proiettivo deve venire $S^{6 g - 7}$.
+     
+    \begin{theorem}
+        Abbiamo corrispondenza biunivoca tra pesi interi è multicurve.
+    \end{theorem}
+
+    \begin{proof}
+        Per ogni peso costruisco una train track con quei pesi. A ogni anello assegno alle due curve il suo $a_i$.
+
+        Considero un pantalone, che ha tre pesi $a_j$. Voglio mettere degli archi (eventualmente pesati) che intersechino la componente $j$ $a_j$ volte. Se un $a_j$ è maggiore della somma degli altri due metto degli archi che escono e tornano nella stessa componente di bordo, e altri che vanno nelle altre due, altrimenti metto degli archi tra le componenti in modo ragionevole.
+
+        In un anello entrano in gioco anche $b$ e $c$, che determinano in qualche modo se gli archi devono andare dritti o fare un giro.
+    \end{proof}
+    
+    
+    
 \end{document}
