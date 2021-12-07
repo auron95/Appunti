@@ -1,0 +1,281 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{theorem}{Teorema}
+\newtheorem{proposition}{Proposizione}
+\newtheorem{corollary}{Corollario}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}
+\newtheorem{exercise}{Esercizio}
+\newtheorem{example}{Esempio}
+\newtheorem{remark}{Nota}
+
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\im}{Im}
+
+\title{Appunti Geometria Iperbolica}
+\date{\today}
+\begin{document}
+    \maketitle
+    
+\section{Spazio di Teichmüller}
+
+    Sia $S_g$ una superficie di genere $g$. Caso $g \geq 2$ : allora $S_g$ ammette tante strutture iperboliche.
+
+    \begin{definition}
+        Lo spazio di Teichmüller (che è nazistissimo) (rip) $\Teich(S_g)$ è lo spazio di tutte le metriche iperboliche su $S_g$ a meno della relazione di equivalenza isometria isotopa all'identità.
+    \end{definition}
+
+    \begin{theorem}
+        $\Teich(S_g) \cong \mathbb R^{6g-6}$
+    \end{theorem}
+
+    \begin{proof}
+        Prendiamo $S_g$. Si decompone in pantaloni. Ogni pantalone ha sul bordo tre numeri positivi. $\exists!$ pantalone geodetico con quelle lunghezze sul bordo (che deve essere geodetico).
+
+        Per ogni attaccamento ho un grado di libertà dovuta alla torsione che posso dare nell'attaccamento.
+    \end{proof}
+    
+    Topologicamente $\mathbb R^{6g-6}$ è una palla. Vorremmo compattificarla. Ci sono tanti modi.
+
+    Cosa viene? I parametri di twist non sono univoci, serve una multicurva per decidere lo zero. Come si va a $\infty$? Se una curva si strizza a $0$, succede che per il lemma di collare la curva ha un collare molto grosso. Tende a una superficie con un nodo, che ha senso in geometria algebrica ma per noi mica tanto. Guarda per esempio una curva in $\mathbb {CP}^2$.
+
+    Facciamo propaganda per la nostra compattificazione. Prendiamo $\mathcal S$ insieme delle curve semplici chiuse in $S_g$ a meno di isotopia e cambio di orientazione, omotopicamente non nulle. È numerabile, ma non facile da descrivere.
+
+    Facciamo sta cosa. Consideriamo $\mathbb R^\mathcal S$ funzioni $\mathbb R \to \mathcal S$. Costruiamo due funzioni iniettive che chiamo comunque embedding.
+    \begin{itemize}
+        \item $\iota: \Teich(S_g) \to \mathbb R^\mathcal{S}$, $[m] \mapsto \left(\gamma \mapsto l^\gamma(m)\right)$, lunghezza di $\overline{\gamma}$ rappr geodetico di $\gamma$.
+        \item $j: \mathcal S \in \mathbb R^{\mathcal S}$, $\gamma \mapsto (\mu \mapsto i(\gamma,\mu))$, dove la mappa $i(\alpha,\beta)$ è l'intersezione geometrica.
+    \end{itemize}
+
+    Vale che $\im \iota \cap \im j = \emptyset$ e sono entrambe iniettive. Ogni metrica e ogni curva è un funzionale su curve.
+
+    Al limite, se strizzo una curva, tutte le curve che passano per lei hanno la lunghezza che tende a infinito, mentre le altre rimangono dell'ordine dell'unità [cit.].
+    Passando al proiettivo, tende all'intersezione della curva $\alpha$, perché contano solo le intersezioni con lei.
+
+    Variamo ora il twist. Si va ad $\alpha$ anche qui(?). Possiamo anche andare ad oggetti più complicati, detti laminazioni.
+
+    Perché va sempre ad $\alpha$? È strano, ma il fatto è che è una cosa che succede anche nel piano iperbolico: andando in su, a sinistra o a destra si va sempre allo stesso $\infty$, perché ti stai muovendo su un'orosfera. Twistare è come muoversi sull'orosfera, strizzare è come andare dritti.
+
+\subsection{Caso del toro}
+    Vediamo l'esempio del toro.
+
+    Fissiamo meridiano e longitudine $ \mu, \lambda$. In questo caso $\Teich(T) =$ metriche piatte a meno di riscalamento e isometrie isotope a identità. Si vede che $\Teich(T) = \mathbb H^2$ con il modello del semipiano. A $z \in \mathbb H^2$ costruisco un parallelogramma con vertici $0, 1, z$ che mi dà una metrica sul toro. A meno di ruotare e riscalare sono tutti fatti così.
+
+    Le curve semplici chiuse sono in bigezione con le coppie di interi coprimi.
+
+    \begin{proposition}
+        Sia $\gamma$ una curva semplice chiusa in $S_g$. Sono condizioni equivalenti:
+        \begin{enumerate}
+            \item $[\gamma] \in \pi_1(S_g)$ banale
+            \item $\gamma$ è omotopa a costante.
+            \item $\gamma$ è bordo di un disco.
+        \end{enumerate}
+    \end{proposition}
+
+
+    \begin{proposition}
+        L'intersezione tra due curve $(p,q)$ e $r,s$ è il determinante della matrice $(p,q;r,s)$.
+    \end{proposition}
+
+    \begin{definition}
+        $l^s(z) = L(\overline{s}^z)$ lunghezza del rappresentante geodetico rispetto alla metrica riscalata con area 1. 
+    \end{definition}
+    $ l(\frac{p}{q}, \frac{r}{s}) = |ps-qr| = s|p-q \frac{r}{s}|$
+
+
+\section{Lezione}
+    
+    $\mathcal G = \mathcal G(\mathbb H^2 ) = \left(\left(\partial \mathbb H^2 \times\right)\right)$ 
+
+    \begin{theorem}
+        Se $S$ ha due metriche iperboliche, $S = \mathbb H^2 /\Gamma, \mathbb H^2 /\Gamma'$, cioè $\pi_{1} S = \Gamma = \Gamma'$.
+        Induce $(\Gamma, \mathcal G) \xrightarrow{~} (\Gamma', \mathcal G)$.
+    \end{theorem}
+
+    \begin{proof}
+        Si usa che qualsiasi equivalenza omotopica si estende ai rivestimenti e all'infinito e si comporta in modo bellissimo.
+    \end{proof}
+
+    \begin{exercise}
+         $D \subseteq \mathcal G$ discreto $\Leftrightarrow$ ogni $K \subseteq \mathbb H^2$ interseca solo un numero finito di rette $\ell$.
+    \end{exercise}
+
+    \begin{proposition}
+        Una $\Gamma$-orbita è discreta $\Leftrightarrow$ si proietta su geodetica chiusa $\Leftrightarrow$ è fatta di assi di traslazione iperbolici.
+    \end{proposition}
+
+    \begin{proof}
+        Se è discreta ho due possibilità:
+        \begin{itemize}
+            \item O rette disgiunte $\Rightarrow$ è semplice
+            \item Oppure no $\Rightarrow$ non è semplice.
+        \end{itemize}
+    \end{proof}
+
+    \begin{corollary}
+        Le $\Gamma$-orbite discrete sono 1:1 con le classi di coniugio di $\Gamma$.
+    \end{corollary}
+    
+\subsection{Correnti geodetiche}
+    Sono un miglioramento di un'idea di Thurston.
+
+    \begin{definition}
+        $S$ superficie di genere $g$, con metrica iperbolica, quindi $S = \mathbb H^2 /\Gamma$. Una corrente geodetica su $S$ è una misura boreliana $\Gamma$-invariante localmente finita su $\mathcal G$.
+    \end{definition}
+
+    $\mathcal C = \{\textrm{correnti}\} \subset \mathcal M =$ misure Boreliane localmente finite $\subset \mathcal C_{c} (\mathcal G)$ con la topologia debole-*.
+
+    \begin{example}
+        Se prendo $\gamma$ geodetica chiusa (penso al supporto) lei definisce una corrente. (Nota che $\mathcal S$ non dipende dalla metrica, perché ogni geodetica per una metrica è omotopa a una sola metrica nell'altra). Per la proposizione di prima, $\pi^{-1}(\gamma) =$ unione di rette $\ell_{i}$, discreto $\Gamma$-invariante. Metto la misura di Dirac su questo insieme. Quindi ogni geodetica chiusa definisce una corrente.
+    \end{example}
+
+    \begin{proposition}
+        $\nu \in \mathcal C$. Se $\ell$ è un atomo per $\mu$, allora $\ell$ si proietta su una geodetica chiusa.
+    \end{proposition}
+
+    \begin{proof}
+        Il punto è che un atomo $l$ con misura positiva, la sua $\Gamma$-orbita deve essere discreta, altrimenti si accumula da qualche parte e lì c'è un problema perché ogni aperto avrebbe misura infinita $\Rightarrow$ non è localmente finita.
+    \end{proof}
+
+\subsection{Misura di Liouville}
+
+    Definiamo una misura su $\mathcal G$ in questo modo. Prendiamo $\mathbb H^2$ e una geodetica $\gamma: \mathbb R \to \mathbb H^2$ PLA. Occhio che $\mathcal G$ non ha una struttura liscia universale. Scelgo ora una struttura liscia con un atlante $U_{\gamma} = \{\textrm{rette che intersecano }\ell\} \subseteq \mathcal G$. È parametrizzato da $\mathbb R \times (0,\pi)$ (punto di intersezione e angolo). È la stessa di $S^1 \times S^1$.
+
+    Dato che è un nastro di Möbius, non ho forma volume, ma la definisco a meno di segno così ho una misura.
+
+    \begin{proposition}
+        Prendiamo $L_{\gamma} = \frac12 \sin \theta dt \wedge d\theta$. Al variare di $\gamma$ coincidono tutte a meno di segno.
+    \end{proposition}
+
+    \begin{proposition}
+        È un conto che è una rottura di scatole.
+    \end{proposition}
+
+    Abbiamo ottenuto la misura di Liouville $L$.
+
+    \begin{remark}
+        $L$ è invariante per isometrie di $\mathbb H^2$, perché lo è l'atlante che abbiamo usato per definirlo. Forse esiste un qualche teorema di unicità.
+    \end{remark}
+
+    Cosa si può vedere di questa misura.
+
+    \begin{proposition}
+        Se voi prendete un segmento $s$ lungo $s$. Uno può guardare l'insieme delle rette che intersecano $s$. La misura viene proprio $s$.
+    \end{proposition}
+
+    Forse uno potrebbe usarlo per definire $L$.
+
+    \begin{proof}
+        Prendi la geodetica grande $\ell$ che estende $s$ e adesso integra.
+    \end{proof}
+
+    \begin{definition}
+        Dati quattro punti distinti in $\partial \mathbb H^2$ $a,b,c.d$ ho sempre un box di rette con un estremo in $[a,b]$ e uno in $[c,d]$. La misura dell'insieme è il birapporto che è $\mathbb P SL(2,\mathbb R)$-invariante.
+    \end{definition}
+
+    Se $S = \mathbb H^2 /\Gamma$, la misura di Liouville è una corrente. Infatti è invariante per tutte le isometrie, quindi anche per $\Gamma$. Dipende molto dalla metrica!
+
+    Otteniamo una mappa $\Teich(S) \to \mathcal C$ data da $[g] \mapsto L_{g}$. Inoltre abbiamo anche una mappa $\mathcal S \hookrightarrow \mathcal C$ data da $\gamma \mapsto \delta_{\gamma}$ la delta di Dirac.
+
+    \begin{remark}
+        L'estensione all'infinito non cambia se cambio l'equivalenza omotopica per un omotopia, perché il sollevamento muove i punti di una distanza limitata.
+    \end{remark}
+    
+    Su queste correnti definiamo una forma d'intersezione. È il vantaggio che ha $\mathcal C$ rispetto a $\mathbb R^{\mathcal S}$.
+
+\subsection{Modello proiettivo di $\mathbb H^n$}
+
+    Abbiamo l'iperboloide $I^{n} \subseteq \mathbb{PR}^{n,1}$. Lo posso proiettare al proiettivo. Ottengo $[x_1, \ldots, x_n] : x_1^2 + \ldots + x_n^2 - x_{n+1}^2 < 0$.
+    \begin{remark}
+        I sottospazi di $\mathbb H^n$ sono i sottospazi proiettivi che lo intersecano. Se fisso l'ultima coordinata uguale a $1$ la distanza è data dal birapporto.
+    \end{remark}
+
+    \begin{remark}
+        I punti all'infinito sono l'immagine del cono luce.
+    \end{remark}
+
+\section{2 dicembre}
+    
+    \begin{example}
+        Prendiamo $\Gamma = \left<\varphi\right>$ con $\varphi$ iperbolica. Viene un tubo. Il convex core viene un po' patologico e viene la geodetica $\gamma$.
+    \end{example}
+    
+    In generale è possibile definire il convex core in modo intrinseco.
+
+    \begin{definition}[Convesso]
+        Se $M$ è iperbolica (in generale Riemanniana), come definisco convesso? È convessa $\iff$ per ogni $p,q \in C$ e per ogni curva che li collega l'unico raddrizzato (siamo in curvatura negativa) è dentro $C$.
+    \end{definition}
+
+    \begin{exercise}
+        Il convex core di $M$ è il più piccolo convesso in $M$. Perché due convessi sono non disgiunti?
+    \end{exercise}
+
+    Sia $S = S_2$ e $S_0$ un pantalone. $S_0$ è $\pi_1$-iniettiva. Chi è il rivestimento? È un pezzo che è una copia uguale a $S_0$ e poi ho dei semipiani iperbolici. È omeomorfa a un toro bucato ma ha volume infinito. Il convex core è il pantalone.
+
+    \begin{example}[Gruppi di Schettly]
+        $H_1, \ldots, H_{2 m} \subseteq \mathbb H^n$ semispazi disgiunti. Li accoppiamo e scegliamo un isometria $\varphi$ che manda bordo di $H_{1}$ in bordo di $H_{2}$ eccetera. Vogliamo che scambino il dentro con il fuori. Chiamo $\Gamma = \left<\varphi_1, ..., \varphi_m\right>$
+    \end{example}
+
+    \begin{proposition}
+        $\Gamma$ agisce libero e propriamente discontinua, e $\pi_{1} (M) = \Gamma = F_{m}$.
+    \end{proposition}
+
+    \begin{proof}
+        Prendo $C = \mathbb H^n \setminus H_1 \cup H_2 \cup H_{2 m}$. È una varietà dopo che incollo gli iperpiani.
+    \end{proof}
+
+    Chi è l'insieme limite? È un Cantor, perché se attacco i vari domini fondamentali le cose si ripetono.
+
+\subsection{Laminazioni geodetiche}
+    $S$ superficie iperbolica completa.
+    \begin{definition}
+        Una \emph{laminazione} è un sottoinsieme chiuso che è $\cup$ di geodetiche massimali semplici disgiunte.
+    \end{definition}
+
+    \begin{example}
+        Una geodetica. Oppure tre geodetiche. Oppure prendo in $H^2$ prendo insieme infinito incasinato di geodetiche che sia chiuso.
+    \end{example}
+
+    \begin{exercise}
+        Se ho un insieme $\ell_i$ di rette disgiunte in $\mathbb H^2$ è un chiuso $\iff$ è chiuso come insieme in $\mathcal G$.
+    \end{exercise}
+
+    \begin{exercise}
+        Se ho insieme di geodetiche qualsiasi disgiunte $\{\ell_i\} \in \mathcal G$. La chiusura è sempre fatta di geodetiche disgiunte e quindi è una laminazione.
+    \end{exercise}
+
+    Guarderemo solo laminazioni in una superficie compatta.
+
+    \begin{remark}
+        Le laminazioni in $S$ sono la stessa cosa che le laminazioni in $\mathbb H^2$ $\Gamma$-invarianti. Non è chiaro a priori ma è vero che in $S$ una laminazione è determinata dal suo supporto.
+    \end{remark}
+
+    \begin{exercise}
+        Se uno ha una laminazione in $S$ allora $\forall p \in \lambda \exists U(p)$ omeomorfo a $(0,1) \times (0,1)$ con le laminazioni che sono orizzontali (ma non ci sono a tutte le altezze, non necessariamente, ma è $(0,1) \times C$ con $C$ chiuso.
+    \end{exercise}
+
+    \begin{proposition}
+        Se $vol(S) < \infty$, $C$ ha parte interna vuota e quindi in particolare $\lambda$ ha parte interna vuota.
+    \end{proposition}
+
+    \begin{proof}
+        Supponiamo che sia falso, localmente ho $(0,1) \times (-\varepsilon,\varepsilon)$ di foglie. L'idea è che ho un fascio di geodetiche che vanno in giro, spannano area e non si intersecano $\implies$ assurdo.
+        Formalmente, sollevo la laminazione a tutto $\mathbb H^2$. Questa contiene il fascio di luce. C'è una zona in cui il fascio di geodetiche colpisce l'infinito in una roba con parte interna non vuota. Gli assi delle trasformazioni iperboliche hanno due punti fissi all'$\infty$ e abbiamo visto che sono un denso in $\mathbb H^2$ (che coincide con l'insieme limite perché il volume è finito). Ma allora assurdo, perché ho un asse nel fascio WLOG attrattivo. Ma allora ste rette si stanno intersecando.
+    \end{proof}
+
+    \begin{definition}
+        Se ho $\lambda \subseteq S$ laminazione una \emph{regione complementare} è una componente connessa di $S \setminus \lambda$.
+    \end{definition}
+
+    \begin{proposition}
+        Se $S = S_g$ ho al più $4g - 4$ regioni complementari.
+    \end{proposition}
+
+    \begin{proof}
+        Prendo $\overline{C}$ completamento di $C$, con $C$ regione complementare. Quello che voglio dire è che $\overline{C}$ è superficie con bordo geodetico. Lo completo in modo astratto, i.e. se si attacca in due modi attacco due copie. Qualsiasi superficie con bordo geodetico ha area almeno $\pi$, quella del triangolo ideale.
+    \end{proof}
+\end{document}
