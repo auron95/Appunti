@@ -198,6 +198,133 @@
         I punti all'infinito sono l'immagine del cono luce.
     \end{remark}
 
+\section{Lezione 25/11}
+
+La controimmagine di un pantalone è una $\cup$ di cose semplicemente connesse che formano circa un albero trivalente.
+
+\begin{definition}
+    Un terremoto è tagliare lungo una geodetica e riincollare con un twist.
+\end{definition}
+
+Se io faccio un terremoto lungo una curva di incollamento dei pantaloni un una superficie di genere 2, ottengo la stessa versione combinatoria ma è tutto un po' sfasato.
+
+L'identità da $S$ in sé mappa ogni esagono nel cugino sfasato. In particolare i punti all'infinito sono tutti ruotati verso sinistra. C'è un punto in cui si vede che non è derivabile, perché a sinistra è repulsivo e a destra attrattivo. C'è uno sfavamento [sic].
+
+Torniamo alle
+\subsection{Correnti}
+    
+Il giochino era imitare il modello del proiettivo. Sappiamo che $I \subseteq \mathbb R^{n + 1}$. Proiettiamo su $x_{n + 1} = 1$ e compattifichiamo usando la proiezione del cono luce.
+
+Vorremmo dimostrare che l'immagine di $L: \Teich \hookrightarrow \mathcal C$ è una specie di iperboloide e viene propria, ma se lo mando nel proiettivo diventa non propria.
+
+Vogliamo definire questa forma di intersezione sulle correnti.
+
+\begin{definition}
+    $\mathcal I \subseteq \mathcal G \times \mathcal G$ è l'insieme delle rette distinte che si intersecano in un punto.
+
+    L'azione di $\Gamma$ su $\mathcal I$ è libera e propriamente discontinua. $\mathcal I$ può essere visto come $\{(p,\ell,\ell'): p \in \mathbb H^2, p \in \ell,\ell'\}$. È quasi il fibrato dei frame, solo proiettivizzato. Ora $\Gamma$ agisce già in modo libero e propriamente discontinuo su $\mathbb H^2$.
+
+    È una $4$-varietà.
+
+    Abbiamo $S = \mathbb H^2 / \Gamma$, $\mathcal C =$ misure $\Gamma$-invarianti su $\mathcal G$. Se prendo due correnti devo intersecarle: prendo $\alpha, \beta \in \mathcal G \times \mathcal G$. Ora $\alpha \times \beta$ è una misura su $\mathcal G \times \mathcal G$ e quindi su $\mathcal I$. Dato che è $\Gamma$-invariante passa al quoziente a una misura su $\mathcal I / \Gamma$. La misura di un insieme di sotto è la misura di una qualsiasi controimmagine buona.
+    \begin{definition}
+        $i(\alpha,\beta) = Vol(\mathcal I / \Gamma)$.
+    \end{definition}
+
+    \begin{proposition}
+        $i(\alpha,\beta) < + \infty$.
+    \end{proposition}
+    \begin{proof}
+        $S$ è compatta, quindi prendo un dominio di Dirichlet $X$ compatto. $X \times X \subseteq \mathcal G \times \mathcal G$ è compatto. Prendo $\mathcal I \cap X \times X$ e lo proietto suriettivamente su $\mathcal I / \Gamma$. Quindi alla fine $i(\alpha,\beta)<\alpha(X) \beta(X)$.
+    \end{proof}
+
+    \begin{example}
+        Per ogni curva $\gamma$ curva chiusa in $\mathcal S$ essenziale dà una corrente $\delta_\gamma$.
+    \end{example}
+
+    \begin{remark}
+        $i$ è simmetrica e bilineare.
+    \end{remark}
+
+    \begin{proposition}
+        Se $\alpha$ è una curva, e $m$ una metrica, allora $i(\delta_\alpha, L_{m}) = l^{\gamma}(m)$.
+    \end{proposition}
+
+    \begin{proof}
+        Dobbiamo capire come calcolare $i$. Si prende $\delta_{\gamma}  \times L_{m}$ su $\mathcal G \times \mathcal G$. Chi è il supporto? È \[
+            supp(\delta_{\gamma} ) \times supp(L_{m}) = \Gamma l \times \mathcal G.
+        \]
+        In $I / \Gamma$
+        Sollevo $\gamma$ a tanti segmenti lunghi $s$. Tutte le coppie sono un sollevamento e una che la interseca. Agendo con $G$, sono in corrispondenza con una retta e rette che la intersecano in un segmento lungo $s$.
+        \[
+            (\delta \times L_{m} ) (\{(\ell, \ell')\}  = 1 \cdot s
+        \]
+    \end{proof}
+
+    \begin{proposition}
+        Se $\gamma, \eta$ sono due curve, allora $i(\delta_\alpha, \delta_{\beta}) = i(\gamma, \eta)$.
+    \end{proposition}
+
+    \begin{proof}
+        Come prima. Solleviamo $\gamma$ ed $\eta$. A meno di azione di $\Gamma$ ottengo solo cose che intersecano la prima nel segmento. Calcolo e viene il conto.
+    \end{proof}
+
+    \begin{proposition}
+        Se $m, m'$ sono metriche, allora $i(L_m, L_{m'})$ viene boh. Se $m = m'$ viene $- \pi^2 \chi(S)$. Invece $i(\gamma,\gamma) = 0$.
+    \end{proposition}
+
+    Le curve semplici chiuse sono un discreto nel cono di luce, poi c'è il Teichmüller che è una specie di iperboloide. Ci sono un sacco di cose da dimostrare.
+
+    \begin{theorem}
+        $i: \mathcal C \times \mathcal C \to \mathbb R$ è continua.
+    \end{theorem}
+
+    \begin{proof}
+        È stradebole, vuoi che non venga continua? Ah no in realtà è più difficile se è debole. Ci accontentiamo lo stesso. In realtà è una rottura di scatole. Potrebbe andare della massa ad infinito, ma non accade.
+    \end{proof}
+
+    \begin{definition}
+        $\alpha \in \mathcal C$ \emph{riempie} (non dico filla che se no qualcuno si arrabbia) se ogni retta $\ell$ interseca il supporto $supp(\alpha) \subseteq \mathcal G$. 
+    \end{definition}
+    
+    \begin{remark}
+        $L_{m}$ riempie, ma $\delta_\gamma$ no quando $\gamma$ è semplice.
+    \end{remark}
+
+    \begin{remark}
+        Se $\gamma$ è geodetica tale che il complementare sono poligoni, allora riempie.
+    \end{remark}
+
+    A che servono le correnti che riempiono? Non lo so ma vale il seguente simpatico teoremino:
+    \begin{exercise}
+        Se ho due correnti $\alpha, \beta$ allora $i(\alpha,\beta)>0 \iff \exists \ell \subseteq supp(\alpha), \ell' \in supp(\beta): \ell \cap \ell' =\{pt\}$.
+    \end{exercise}
+
+    \begin{proposition}
+        Se $\alpha$ riempie, allora $i(\alpha, \beta)$ positiva.
+    \end{proposition}
+
+    \begin{proposition}
+        $\alpha$ riempie $\implies S = \{\beta \in \mathcal C: i(\alpha,\beta) \leq M\}$ è compatto.
+    \end{proposition}
+
+    \begin{proof}
+        Prendiamo $\beta$ con $i(\alpha,\beta) \leq M$. Sappiamo $S$ chiuso per continuità. Prendo $\ell$ con supporto in $\beta$. Allora $\exists \alpha \in supp(\alpha)$ e due box, che se sono molto piccoli la restrizione della proiezione su $\mathcal I / \Gamma$ è iniettiva.
+        Ho $\alpha(B)\beta(B')\leq M$. Ne deduco che sul box $B$ $\alpha$ è limitato. Uno spazio di misure che su ogni compatto è limitato è compatto perché ho la debole-*.
+    \end{proof}
+
+    Ho un criterio di compattezza.
+    \begin{corollary}
+        Prendiamo delle curve che unite riempiono. Se guardo $S = \{m in \Teich(S_g): \ell^{\gamma_i} (m) \leq M\}$ è compatto.
+        Anche tutte le curve $\gamma \in \mathcal S: i(\gamma_i,\gamma) \leq M$ è finito.
+    \end{corollary}
+    
+    \begin{corollary}
+        Fissato $m$, le geodetiche lunghe meno di $M$ sono finite.
+    \end{corollary}
+    
+\end{definition}
+
 \section{2 dicembre}
     
     \begin{example}
