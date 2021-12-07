@@ -28,7 +28,11 @@ jobs:
       - uses: xu-cheng/latex-action@v2
         with:
           root_file: geometria_iperbolica.tex
-      - uses: actions/upload-artifact@v2
+          
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: AppuntiGeometriaIperbolica
-          path: geometria_iperbolica.pdf
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: geometria_iperbolica.pdf
