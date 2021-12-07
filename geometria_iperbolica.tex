@@ -23,20 +23,20 @@
     
 \section{Spazio di Teichmüller}
 
-    Sia $S_g$ una superficie di genere $g$. Caso $g \geq 2$ : allora $S_g$ ammette tante strutture iperboliche.
+    Sia $S_g$ una superficie di genere $g$. Se $g \geq 2$ allora $S_g$ ammette tante strutture iperboliche.
 
     \begin{definition}
-        Lo spazio di Teichmüller (che è nazistissimo) (rip) $\Teich(S_g)$ è lo spazio di tutte le metriche iperboliche su $S_g$ a meno della relazione di equivalenza isometria isotopa all'identità.
+        Lo spazio di Teichmüller $\Teich(S_g)$ è lo spazio di tutte le metriche iperboliche su $S_g$ a meno della relazione di equivalenza in cui due metriche sono equivalenti se sono una il pull-back dell'altra mediante un'isometria isotopa all'identità.
     \end{definition}
 
     \begin{theorem}
-        $\Teich(S_g) \cong \mathbb R^{6g-6}$
+        $\Teich(S_g) \cong \mathbb R^{6g-6}$.
     \end{theorem}
 
     \begin{proof}
-        Prendiamo $S_g$. Si decompone in pantaloni. Ogni pantalone ha sul bordo tre numeri positivi. $\exists!$ pantalone geodetico con quelle lunghezze sul bordo (che deve essere geodetico).
+        Consideriamo una decomposizione in pantaloni di $S_g$. Assegnamo a ognuna delle $3g - 3$ curve di bordo un numero positivo. Ogni pantalone ha così sul bordo tre numeri positivi, ed esiste un unico pantalone geodetico con i bordi di quelle lunghezze.
 
-        Per ogni attaccamento ho un grado di libertà dovuta alla torsione che posso dare nell'attaccamento.
+        Per ogni attaccamento ho un grado di libertà dovuta alla torsione che posso dare nell'attaccamento, quindi in totale $\Teich(S_g) \cong \mathbb R_+^{3g - 3} \times \mathbb R^{3g - 3}$.
     \end{proof}
     
     Topologicamente $\mathbb R^{6g-6}$ è una palla. Vorremmo compattificarla. Ci sono tanti modi.
@@ -151,9 +151,9 @@
         Prendiamo $L_{\gamma} = \frac12 \sin \theta dt \wedge d\theta$. Al variare di $\gamma$ coincidono tutte a meno di segno.
     \end{proposition}
 
-    \begin{proposition}
+    \begin{proof}
         È un conto che è una rottura di scatole.
-    \end{proposition}
+    \end{proof}
 
     Abbiamo ottenuto la misura di Liouville $L$.
 
