@@ -47,7 +47,7 @@
 
     Facciamo sta cosa. Consideriamo $\mathbb R^\mathcal S$ funzioni $\mathbb R \to \mathcal S$. Costruiamo due funzioni iniettive che chiamo comunque embedding.
     \begin{itemize}
-        \item $\iota: \Teich(S_g) \to \mathbb R^\mathcal{S}$, $[m] \mapsto \left(\gamma \mapsto l^\gamma(m)\right)$, lunghezza di $\overline{\gamma}$ rappr geodetico di $\gamma$.
+        \item $\iota: \Teich(S_g) \to \mathbb R^\mathcal{S}$, $[m] \mapsto \left(\gamma \mapsto l^\gamma(m)\right)$, lunghezza di $\overline{\gamma}$ appr geodetico di $\gamma$.
         \item $j: \mathcal S \in \mathbb R^{\mathcal S}$, $\gamma \mapsto (\mu \mapsto i(\gamma,\mu))$, dove la mappa $i(\alpha,\beta)$ è l'intersezione geometrica.
     \end{itemize}
 
@@ -469,7 +469,7 @@ Vogliamo definire questa forma di intersezione sulle correnti.
 
     Fissiamo una decomposizione in pantaloni e anelli, che è una decomposizione in pantaloni in cui ogni curva compare due volte. Fisso su ogni curva un punto e l'identificazione di ogni pantalone con un modello standard (disegno di un disco con tre dischi rimossi) e di ogni anello con un anello standard.
 
-    Ogni anello riceve una terna di pesi $(a_i, b_i, c_i) \geq 0$ tali che uno è la somma degli altri due. Quelli interi parametrizzano multicurve, quelli reali laminazioni.
+    Ogni anello riceve una terna di pesi $(a_i, b_i, c_i) \geq 0$ tali che uno è la somma degli altri due. Quelli interi parametrizzano multicurve, quelli reali laminazioni misurate.
     L'insieme di pesi è omeomorfo a $\mathbb R^{6 g - 6}$ (ho $3 g - 3$ anelli che contribuiscono ciascuno con un cono su un triangolo che è omeomorfo a $\mathbb R^2$ ). La dimensione torna, perché il cono di luce quando lo proietto al proiettivo deve venire $S^{6 g - 7}$.
      
     \begin{theorem}
@@ -483,6 +483,93 @@ Vogliamo definire questa forma di intersezione sulle correnti.
 
         In un anello entrano in gioco anche $b$ e $c$, che determinano in qualche modo se gli archi devono andare dritti o fare un giro.
     \end{proof}
+    
+\section{9 dicembre}
+
+    \begin{definition}
+        Nella definizione di intera chiedo che ogni pantalone abbia somma degli $a_i$ pari.
+    \end{definition}
+
+    Se $a_i, a_j, a_k$ rispettano la disuguaglianza triangolare, allora $a_i = x + y, a_j = y + z, a_k = z + x$. Metto x linee dal bordo $i$ a quello $j$, eccetera.
+    Altrimenti, devo prendere una curva che esce e rientra facendo il giro intorno a un altro dei due bordi.
+    
+    Vediamo per l'anello. Intuitivamente $a$ è lo spessore della ferrovia vicina al bordo, $b$ quella in mezzo che ``va diritta'', $c$ quella che gira intorno.
+    \begin{itemize}
+        \item Se $a = b + c$ faccio una ferrovia spessa $a$ in cui $b$ vanno dritti e $c$ fanno il giro.
+        \item Se $c = a + b$ allora ho un cerchio centrale spesso $c$ in cui $a$ se ne vanno verso il bordo.
+        \item Se $b = c + a$ faccio un segmentino lungo $b$ in cui $c$ fanno il giro e $a$ vanno verso il bordo.
+    \end{itemize}
+
+    Sia $\gamma$ la mia multicurva di decomposizione. Sia $\alpha$ una multicurva. La metto in posizione minimale rispetto a $\alpha$.
+
+    \begin{proposition}
+        Ogni curva nel pantalone propriamente embedded che non forma bigoni con il bordo del pantalone, è isotopa (con estremi liberi) a una delle seguenti nove:
+        \begin{itemize}
+            \item O gli archi che connettono due componenti
+            \item O curve parallele al bordo
+            \item Curve che connettono la stessa componente splittando le altre due
+        \end{itemize}
+    \end{proposition}
+
+    \begin{proof}
+        Dividi in due esagoni, minimizza l'intersezione con gli esagoni.
+    \end{proof}
+    
+    Ora, dato che ho gli anelli posso muovere le curve nei pantaloni in modo simultaneo, in modo da metterlo in modo bello. Le curve parallele al bordo le sposto fuori.
+
+    Negli anelli ora c'è tutto lo schifo. Non è così semplice perché ora non posso più muovere gli estremi.
+
+    \begin{proposition}
+        Ogni collezione di archi nell'anello è isotopa ad estremi \emph{fissati} a una portata da una ferrovia di uno dei tre modelli.
+    \end{proposition}
+    
+    \begin{theorem}
+        La configurazione minimale di due curve è unica.
+    \end{theorem}
+    
+\subsection{Laminazioni}
+
+    Prendo una ferrovia pesata, e inspessisco una ferrovia con dei rettangolini euclidei, che hanno una foliazione naturale. Attacco le foglie se posso, tranne nei punti singolari.
+    
+    Ho due problemi: ho i punti singolari che fanno casino, e le foglie non sono geodetiche. La nota positiva è che abbiamo già una specie di misura trasversa.
+
+    Idea: tagliamo lungo le foglie singolari. Toglierle è pericoloso, potrebbero essere un denso. Creo un solco lungo il punto singolare. Uso l'accorgimento di staccarle di una distanza sempre più piccola, in modo che anche se ripasso infinite volte alla fine è facile che venga fuori un Cantor. Non è facile definirlo in modo rigoroso. Non so neanche cosa voglia dire rigoroso.
+    
+    Ora cerchiamo di risolvere che non sono geodetiche. L'idea è che possiamo raddrizzarle.
+
+    \begin{proposition}
+        Data una (multi)curva esiste sempre il modo di raddrizzarla, e se prima non si intersecava allora non si interseca neanche dopo.
+    \end{proposition}
+
+    La cosa importante è che la nostra laminazione $\lambda$ non forma bigoni con la nostra decomposizione in pantaloni.
+
+    Come si raddrizza simultaneamente una laminazione topologica? È simile alle curve. Passiamo al rivestimento universale, e solleviamo la multicurva $\gamma$. Se sollevo una foglia, allora per la proprietà dei bigoni oltrepassa ogni sollevamento di $\gamma$ una sola volta, quindi deve andare a un punto all'infinito. La raddrizzo come l'unica geodetica che collega quegli estremi. Lo posso fare per tutte simultaneamente perché se non si intersecavano prima non avevano estremi concatenati. Potrebbero però identificarsi tra di loro.
+
+    A cosa serve sta roba? A essere ganza, a studiare mapping class group e $3$-varietà.
+
+    \begin{theorem}
+        Se uno guarda $\mathbb P\mathcal{ML} \subset \mathbb P\mathcal C$ e $\Teich(S_g) \hookrightarrow \mathbb P\mathcal C$, ho che il primo è $S^{6g - 7}$, il secondo è $\mathbb R^{6g - 6}$, e la chiusura di $\Teich(S_g)$ coincide proprio con $\Teich(S_g) \cup \mathbb P\mathcal{ML}$.
+    \end{theorem}
+
+    \begin{proposition}
+        Questa compattificazione non è l'unica possibile, ma è l'unica invariante per $MCG(S_g)$ (che agisce su $\Teich(S_g)$ e quindi su $\overline{\Teich(S_g)}$.
+    \end{proposition}
+
+    Per Brauer, se $\varphi \in MCG(S_g)$, allora ammette un punto fisso.
+    \begin{definition}
+        $\varphi$ si dice:
+        \begin{itemize}
+            \item Di ordine finito se fissa un punto interno.
+            \item Riducibile se fissa una multicurva.
+            \item Pseudo-Anosov in tutti gli altri casi.
+        \end{itemize}
+        Le prime due non sono mutualmente esclusive.
+    \end{definition}
+
+    \begin{remark}
+        Se è pseudo-Anosov, allora vuol dire che fissa una laminazione.
+    \end{remark}
+    
     
     
     
